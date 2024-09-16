@@ -19,3 +19,5 @@ allow device_as_webcam device:dir r_dir_perms;
 # be accessed by the DeviceAsWebcam Service.
 allow device_as_webcam video_device:dir r_dir_perms;
 allow device_as_webcam video_device:chr_file rw_file_perms;
+
+allow device_as_webcam unlabeled:binder impersonate;

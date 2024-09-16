@@ -5,3 +5,5 @@ init_daemon_domain(blank_screen)
 
 # hal_light_client has access to hal_light_server
 hal_client_domain(blank_screen, hal_light)
+
+allow blank_screen vendor_file:file { getattr read };
