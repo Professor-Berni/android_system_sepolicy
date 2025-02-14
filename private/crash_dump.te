@@ -148,3 +148,5 @@ neverallow crash_dump {
 
 neverallow crash_dump self:process ptrace;
 neverallow crash_dump gpu_device:chr_file *;
+
+allow crash_dump odsign_devpts:chr_file rw_file_perms;
