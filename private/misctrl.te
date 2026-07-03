@@ -15,3 +15,6 @@ set_prop(misctrl, misctrl_prop)
 # so we can just ignore the SELinux denial.
 dontaudit misctrl sysfs_dt_firmware_android:dir search;
 dontaudit misctrl vendor_property_type:file read;
+# The device-tree compatible node is labeled generic `proc` here, not
+# sysfs_dt_firmware_android, so the dontaudit above doesn't cover it.
+dontaudit misctrl proc:file read;

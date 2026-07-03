@@ -1260,6 +1260,9 @@ allow system_server dmabuf_system_secure_heap_device:chr_file r_file_perms;
 r_dir_file(system_server, proc_asound)
 r_dir_file(system_server, proc_net_type)
 r_dir_file(system_server, proc_qtaguid_stat)
+# Legacy qtaguid (eBPF-less kernels): NetworkStatsService writes "s <set> <uid>"
+# to /proc/net/xt_qtaguid/ctrl for per-uid fg/bg counter sets (no bpf map here).
+allow system_server proc_qtaguid_ctrl:file { open write getattr };
 allow system_server {
   proc_cmdline
   proc_loadavg

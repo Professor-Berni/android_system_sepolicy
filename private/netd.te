@@ -110,6 +110,12 @@ allow netd net_data_file:file create_file_perms;
 allow netd net_data_file:dir rw_dir_perms;
 allow netd self:global_capability_class_set fowner;
 
+# Legacy qtaguid (eBPF-less kernels): BandwidthController chowns
+# /proc/net/xt_qtaguid/{stats,ctrl} to net_bw_stats/net_bw_acct so
+# NetworkStatsService can read all-uid stats. netd already has CAP_CHOWN above.
+allow netd proc_qtaguid_stat:file { getattr setattr };
+allow netd proc_qtaguid_ctrl:file { getattr setattr };
+
 # Needed to lock the iptables lock.
 allow netd system_file:file lock;
 

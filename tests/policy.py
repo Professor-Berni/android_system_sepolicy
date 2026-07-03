@@ -521,6 +521,12 @@ coredomainAllowlist = {
         # TODO(b/152813275): need to avoid allowlist for rootdir
         "modprobe",
         "slideshow",
+        # Legacy Sony/QCOM daemons that run in vendor domains but launch from
+        # /system/bin: qseecomd (tee: QSEE/TrustZone, RPMB, keymaster), adsprpcd
+        # (ADSP FastRPC), irsc_util (modem IRSC). Can't move to /vendor; exempt them.
+        "tee",
+        "adsprpcd",
+        "irsc_util",
         }
 
 class scontext:
