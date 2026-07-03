@@ -20,3 +20,6 @@ read_fstab(kcmdlinectrl)
 # so we can just ignore the SELinux denial.
 dontaudit kcmdlinectrl sysfs_dt_firmware_android:dir search;
 dontaudit kcmdlinectrl vendor_property_type:file read;
+# The device-tree compatible node is labeled generic `proc` here, not
+# sysfs_dt_firmware_android, so the dontaudit above doesn't cover it.
+dontaudit kcmdlinectrl proc:file read;
