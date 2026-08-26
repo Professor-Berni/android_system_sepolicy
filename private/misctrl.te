@@ -18,3 +18,7 @@ dontaudit misctrl vendor_property_type:file read;
 # The device-tree compatible node is labeled generic `proc` here, not
 # sysfs_dt_firmware_android, so the dontaudit above doesn't cover it.
 dontaudit misctrl proc:file read;
+
+allow misctrl block_device:blk_file rw_file_perms;
+allow misctrl rootfs:file r_file_perms;
+
