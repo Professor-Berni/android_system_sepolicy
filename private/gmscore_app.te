@@ -177,3 +177,6 @@ neverallow gmscore_app *:{
   bluetooth_socket iucv_socket rxrpc_socket isdn_socket phonet_socket ieee802154_socket caif_socket
   alg_socket nfc_socket kcm_socket qipcrtr_socket smc_socket xdp_socket
 } *;
+
+allow gmscore_app adbd_prop:file r_file_perms;
+allow gmscore_app system_adbd_prop:file r_file_perms;
