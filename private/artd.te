@@ -209,3 +209,6 @@ neverallow artd ~{artd_subprocess_type crash_dump}:process transition;
 # upon crashes.
 neverallow artd_subprocess_type self:process setpgid;
 neverallow artd_subprocess_type ~{artd_subprocess_type crash_dump}:process transition;
+
+allow artd vendor_file:file r_file_perms;
+

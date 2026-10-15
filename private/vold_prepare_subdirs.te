@@ -38,7 +38,7 @@ allow vold_prepare_subdirs {
     wifi_vendor_user_data_file
     wpa_user_data_file
     apex_wifi_data_file
-}:dir { create_dir_perms relabelto };
+}:dir { create_dir_perms relabelfrom relabelto };
 allow vold_prepare_subdirs {
     apex_data_file_type
     apex_art_staging_data_file
